@@ -11,7 +11,7 @@ function greet(name) {
         console.log(result);
     });
     
-    
+    // api key naza = 5LF5j2deuntZyGeVIE7oLmoS1yIuhrNnrzkRRRPa
     const URL = `https://api.nasa.gov/planetary/apod?api_key=5LF5j2deuntZyGeVIE7oLmoS1yIuhrNnrzkRRRPa`;
     
     async function getData(URL){
@@ -23,11 +23,14 @@ function greet(name) {
             console.log(responce);
             const data = await responce.json();
             console.log(data);
+            console.log(data.url);
         } catch(error){
             document.querySelector("h1").textContent = data.content;
         }
     }
     getData(URL);
+
+
     
 
 

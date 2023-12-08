@@ -1,4 +1,3 @@
-
 function greet(name) {
     const greetPromise = new Promise(function (resolve, reject) {
         return('hello ${name}');
@@ -30,4 +29,5 @@ function greet(name) {
     }
     getData(URL);
     
+
 

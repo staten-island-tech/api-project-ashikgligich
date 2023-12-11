@@ -24,9 +24,12 @@ function greet(name) {
             const data = await responce.json();
             console.log(data);
             console.log(data.url);
+            document.body.style.backgroundImage = `url(${data.url})`;
         } catch(error){
-            document.querySelector("h1").textContent = data.content;
+            console.error("Error fetching data:", error);
+            document.querySelector("h1").textContent = "Error fetching NASA data";
         }
+        
     }
     getData(URL);
 

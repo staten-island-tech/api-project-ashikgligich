@@ -1,27 +1,27 @@
 import './ash'
-import { usAirForceJets } from './menu'
+//import { usAirForceJets } from './menu'
 
 
-let modeButton = document.querySelector("#schemaaaaa");
+// let modeButton = document.querySelector("#schemaaaaa");
 
-modeButton.addEventListener('click', () => {
-  var r = document.querySelector(':root'); 
-  var rs = getComputedStyle(r);
+// modeButton.addEventListener('click', () => {
+//   var r = document.querySelector(':root'); 
+//   var rs = getComputedStyle(r);
 
-  if (rs.getPropertyValue('--someVar') == "RED")
-    r.style.setProperty('--someVar', 'green');
-  else
-    r.style.setProperty('--someVar', 'RED');
-})
-modeButton.addEventListener('click', () => {
-  var r = document.querySelector(':root'); 
-  var rs = getComputedStyle(r);
+//   if (rs.getPropertyValue('--someVar') == "RED")
+//     r.style.setProperty('--someVar', 'green');
+//   else
+//     r.style.setProperty('--someVar', 'RED');
+// })
+// modeButton.addEventListener('click', () => {
+//   var r = document.querySelector(':root'); 
+//   var rs = getComputedStyle(r);
 
-  if (rs.getPropertyValue('--pic') == "url(/comiepropganda.png)")
-    r.style.setProperty('--pic', 'url(/2602894.jpg)');
-  else
-    r.style.setProperty('--pic', 'url(/comiepropganda.png)');
-})
+//   if (rs.getPropertyValue('--pic') == "url(/comiepropganda.png)")
+//     r.style.setProperty('--pic', 'url(/2602894.jpg)');
+//   else
+//     r.style.setProperty('--pic', 'url(/comiepropganda.png)');
+// })
 
 
 function displayJets(jetz)

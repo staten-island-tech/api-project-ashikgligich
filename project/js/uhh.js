@@ -29,7 +29,7 @@ function greet(name) {
             console.error("Error fetching data:", error);
             document.querySelector("h1").textContent = "Error fetching NASA data";
         }
-        
+       // fireship
     }
     getData(URL);
 

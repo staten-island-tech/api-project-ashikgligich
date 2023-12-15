@@ -65,32 +65,33 @@ const ash = {
 let xx = Array.from(ash.name);
 console.log(xx);
 
-for(let i = 0; i< ash.name,length; i++){
+var i =7;
+for(; ++i< ash.name,length;){
   console.log(ash.name[i]);
 
 }
-let i = 0;
-while( i < ash.name.length){
-  console.log(ash.name[i]);
-  i++;
+
+let ii = 0;
+while( ii < ash.name.length){
+  console.log(ash.name[ii]);
+  ii++;
 }
 
-function need(name, serch){
+function needy(name, serch){
   if(name.includes(serch)){
     return true;
-  }else{
-    return false;
   }
+  return false;
   }
-console.log(need(ash.name, "a"))
+console.log(needy(ash.name, "a"))
 
-function need(name, serch){
+function needz(name, serch){
   if(name === (serch)){
     return true;
-  }else{
-    return false;
   }
+  return false;  
   }
+
 console.log(need(ash.name, "ash"))
 
 function need(name, serch){
@@ -114,6 +115,7 @@ let y = [4,5,6]
 let z = [...x, ...y];
 let zz = {...x, ...y};
 x = [...x, ...y];
+console.log(z);
 console.log(zz);
 function rom(name){
   let x = Array.from(name);
@@ -121,3 +123,4 @@ function rom(name){
   console.log(x);
   
 }
+

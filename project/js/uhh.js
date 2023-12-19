@@ -27,13 +27,13 @@ async function getData(URL) {
     document.body.style.backgroundImage = `url(${data.url})`;
   } catch (error) {
     console.error("Error fetching data:", error);
-    document.querySelector("h1").textContent = "Error fetching NASA data";
+   // document.querySelector("h1").textContent = "Error fetching NASA data";
   }
   // fireship
 }
 getData(URL);
 
-// api key naza = 5LF5j2deuntZyGeVIE7oLmoS1yIuhrNnrzkRRRPa
+// api key naza2 = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUZWNoUG9ydCIsImV4cCI6MTcwMzA4MDU0OCwibmJmIjoxNzAyOTk0MTQ4LCJTRVNTSU9OX0lEIjoiN1FxVmkwOFE5aTNSRDljNWQ0Zm04WHpzMXhIR0JYd2pwck4xIiwiRklOR0VSUFJJTlRfSEFTSCI6IjQ4MjdBRUEzMjJEOEI5QjgzODFGNTA5NEU3NkYxOUVGNUQ1QTVFNUM4MTk4RDIxQzBEMEE5MjAwOUY4OTdFMUMifQ.vVeiqyD3156_q7jkN1ZJi_y0K94COfseX9M7rR-PdaM
 
 const URL2 = `https://techport.nasa.gov/api/projects?updatedSince=2023-11-01`;
 

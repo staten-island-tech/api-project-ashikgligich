@@ -1,3 +1,50 @@
+const DOMSelectors = {
+  form: document.getElementById("form"),
+  firstName: document.querySelector(".first-name"),
+  cardTitle: document.querySelector(".card-title"),
+  cardData: document.querySelector(".card-data"),
+
+};
+
+console.log(DOMSelectors);
+
+DOMSelectors.form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  //alert("here");
+  //console.log(DOMSelectors.firstName.value);
+
+ 
+  //DOMSelectors.h2s.forEach((el) => {
+  //  el.textContent = DOMSelectors.firstName.value;
+  
+
+  var date = `${DOMSelectors.firstName.value}-${DOMSelectors.cardTitle.value}-${DOMSelectors.cardData.value}`;
+console.log(date);
+
+// api key naza2 = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUZWNoUG9ydCIsImV4cCI6MTcwMzA4MDU0OCwibmJmIjoxNzAyOTk0MTQ4LCJTRVNTSU9OX0lEIjoiN1FxVmkwOFE5aTNSRDljNWQ0Zm04WHpzMXhIR0JYd2pwck4xIiwiRklOR0VSUFJJTlRfSEFTSCI6IjQ4MjdBRUEzMjJEOEI5QjgzODFGNTA5NEU3NkYxOUVGNUQ1QTVFNUM4MTk4RDIxQzBEMEE5MjAwOUY4OTdFMUMifQ.vVeiqyD3156_q7jkN1ZJi_y0K94COfseX9M7rR-PdaM
+
+const URL2 = `https://techport.nasa.gov/api/projects?updatedSince=${date}&limit=25`;
+
+
+
+async function getData2(URL2) {
+  try {
+    const responce = await fetch(URL2);
+    if (responce.status != 200) {
+      throw new Error(responce.statusText);
+    }
+    console.log(responce);
+    const data = await responce.json();
+    console.log(data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    document.querySelector("h2").textContent = "Error fetching NASA data";
+  }
+  // fireship
+}
+getData(URL2);
+});
+
 function greet(name) {
   const greetPromise = new Promise(function (resolve, reject) {
     return "hello ${name}";
@@ -33,26 +80,7 @@ async function getData(URL) {
 }
 getData(URL);
 
-// api key naza2 = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUZWNoUG9ydCIsImV4cCI6MTcwMzA4MDU0OCwibmJmIjoxNzAyOTk0MTQ4LCJTRVNTSU9OX0lEIjoiN1FxVmkwOFE5aTNSRDljNWQ0Zm04WHpzMXhIR0JYd2pwck4xIiwiRklOR0VSUFJJTlRfSEFTSCI6IjQ4MjdBRUEzMjJEOEI5QjgzODFGNTA5NEU3NkYxOUVGNUQ1QTVFNUM4MTk4RDIxQzBEMEE5MjAwOUY4OTdFMUMifQ.vVeiqyD3156_q7jkN1ZJi_y0K94COfseX9M7rR-PdaM
 
-const URL2 = `https://techport.nasa.gov/api/projects?updatedSince=2023-11-01`;
-
-async function getData2(URL2) {
-  try {
-    const responce = await fetch(URL2);
-    if (responce.status != 200) {
-      throw new Error(responce.statusText);
-    }
-    console.log(responce);
-    const data = await responce.json();
-    console.log(data);
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    document.querySelector("h2").textContent = "Error fetching NASA data";
-  }
-  // fireship
-}
-getData(URL2);
 
 
 

@@ -34,8 +34,9 @@ async function getData2(URL2) {
       throw new Error(responce.statusText);
     }
     console.log(responce);
-    const data = await responce.json();
+    let data = await responce.json();
     console.log(data);
+    console.log(Array.projects.projectId);
   } catch (error) {
     console.error("Error fetching data:", error);
     document.querySelector("h2").textContent = "Error fetching NASA data";
@@ -44,6 +45,7 @@ async function getData2(URL2) {
 }
 getData(URL2);
 });
+
 
 function greet(name) {
   const greetPromise = new Promise(function (resolve, reject) {

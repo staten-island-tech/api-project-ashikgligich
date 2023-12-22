@@ -72,7 +72,7 @@ var q = getData2(URL2).then(prj => {
 
 
 
-const URL3 = `${yeot}`;
+const URL3 = `${q.projectid}`;
 
 
 

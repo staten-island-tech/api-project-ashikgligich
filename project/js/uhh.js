@@ -3,7 +3,7 @@ const DOMSelectors = {
   firstName: document.querySelector(".first-name"),
   cardTitle: document.querySelector(".card-title"),
   cardData: document.querySelector(".card-data"),
-
+  
 };
 
 console.log(DOMSelectors);
@@ -23,7 +23,7 @@ console.log(date);
 
 // api key naza2 = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUZWNoUG9ydCIsImV4cCI6MTcwMzA4MDU0OCwibmJmIjoxNzAyOTk0MTQ4LCJTRVNTSU9OX0lEIjoiN1FxVmkwOFE5aTNSRDljNWQ0Zm04WHpzMXhIR0JYd2pwck4xIiwiRklOR0VSUFJJTlRfSEFTSCI6IjQ4MjdBRUEzMjJEOEI5QjgzODFGNTA5NEU3NkYxOUVGNUQ1QTVFNUM4MTk4RDIxQzBEMEE5MjAwOUY4OTdFMUMifQ.vVeiqyD3156_q7jkN1ZJi_y0K94COfseX9M7rR-PdaM
 
-const URL2 = `https://techport.nasa.gov/api/projects?updatedSince=${date}&limit=25`;
+const URL2 = `https://techport.nasa.gov/api/projects?updatedSince=${date}`;
 
 
 
@@ -35,16 +35,81 @@ async function getData2(URL2) {
     }
     console.log(responce);
     let data = await responce.json();
-    console.log(data);
-    console.log(Array.projects.projectId);
+    
+    var prj = data.projects.slice(0,5);
+
+    console.log('a');
+    console.log(prj);
+    console.log('b');
+
+    return prj;
+;
+  //  console.log(Array.projects.projectId);
   } catch (error) {
     console.error("Error fetching data:", error);
     document.querySelector("h2").textContent = "Error fetching NASA data";
   }
   // fireship
 }
-getData(URL2);
+var q = getData2(URL2).then(prj => {
+
+  console.log('c')
+  console.log(prj)
+  
+  prj.forEach(p => {
+    console.log('d')
+    console.log(p)
+    console.log(p.projectid);
+    
+  });
+  
 });
+
+
+
+
+// api key naza2 = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUZWNoUG9ydCIsImV4cCI6MTcwMzA4MDU0OCwibmJmIjoxNzAyOTk0MTQ4LCJTRVNTSU9OX0lEIjoiN1FxVmkwOFE5aTNSRDljNWQ0Zm04WHpzMXhIR0JYd2pwck4xIiwiRklOR0VSUFJJTlRfSEFTSCI6IjQ4MjdBRUEzMjJEOEI5QjgzODFGNTA5NEU3NkYxOUVGNUQ1QTVFNUM4MTk4RDIxQzBEMEE5MjAwOUY4OTdFMUMifQ.vVeiqyD3156_q7jkN1ZJi_y0K94COfseX9M7rR-PdaM
+
+
+
+const URL3 = `${yeot}`;
+
+
+
+async function getData3(projectid) {
+  
+  let a = `https://techport.nasa.gov/api/projects/${projectid}`
+  
+  
+  try {
+    const responce = await fetch(a);
+    if (responce.status != 200) {
+      throw new Error(responce.statusText);
+    }
+    console.log(responce);
+    let data = await responce.json();
+    
+    console.log(data);
+    return (getData3);
+  //  console.log(Array.projects.projectId);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    document.querySelector("h2").textContent = "Error fetching NASA data";
+  }
+  // fireship
+}
+getData3(URL3);
+;
+
+//console.log(data);
+
+
+});
+
+
+
+
+
 
 
 function greet(name) {

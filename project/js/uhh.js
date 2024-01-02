@@ -80,6 +80,9 @@ var q = getData2(URL2).then(prj => {
   function displayInfo(prjz)
 {
   prjz.forEach((prj) => {
+    console.log(prjz);
+  console.log(prjz.projectId);
+
     document.querySelector(".flex-container").insertAdjacentHTML(
       "afterbegin",
       `<div class="grow" id="grow">
@@ -88,9 +91,9 @@ var q = getData2(URL2).then(prj => {
             src="${prj.projectId}"
             alt="F44"
           />
-          <h2>${jet.name}</h2>
-          <h4>${jet.role}</h4>
-          <h6>${jet.maxSpeed,jet.range,jet.payload}</h6>
+          <h2>${prj.title}</h2>
+          <h4>${prj.role}</h4>
+          <h6>${prj.projectId}</h6>
           <button type="button" class="delete">Delete</button>
         </div>
       </div>`
@@ -100,6 +103,8 @@ var q = getData2(URL2).then(prj => {
     var button = document.querySelector('button.delete:not([onclick=onButtonClick])');
     button.addEventListener('click', onButtonClick);
 }
+
+displayInfo(prjz);
 }
 );
 

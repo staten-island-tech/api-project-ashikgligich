@@ -25,7 +25,7 @@ console.log(date);
 
 const URL2 = `https://techport.nasa.gov/api/projects?updatedSince=${date}`;
 
-
+var prjz;  
 
 async function getData2(URL2) {
   try {
@@ -36,13 +36,13 @@ async function getData2(URL2) {
     console.log(responce);
     let data = await responce.json();
     
-    var prj = data.projects.slice(0,5);
+    prjz = data.projects.slice(0,5);
 
     console.log('a');
-    console.log(prj);
+    console.log(prjz);
     console.log('b');
 
-    return prj;
+    return prjz;
 ;
   //  console.log(Array.projects.projectId);
   } catch (error) {
@@ -58,12 +58,50 @@ var q = getData2(URL2).then(prj => {
   
   prj.forEach(p => {
     console.log('d')
-    console.log(p)
-    console.log(p.projectid);
+    console.log(p);
+    console.log(p.projectId);
+    console.log('e')
+    getData3(p.projectId).then(data => { 
+      console.log('f'); 
+      p.proj = data;
+
+      console.log(p); 
+    });
+    
+    
     
   });
   
-});
+}).then(q => {
+
+  console.log(prjz);
+  console.log(prjz.projectId);
+
+  function displayInfo(prjz)
+{
+  prjz.forEach((prj) => {
+    document.querySelector(".flex-container").insertAdjacentHTML(
+      "afterbegin",
+      `<div class="grow" id="grow">
+        <div id="animation1">
+          <img
+            src="${prj.projectId}"
+            alt="F44"
+          />
+          <h2>${jet.name}</h2>
+          <h4>${jet.role}</h4>
+          <h6>${jet.maxSpeed,jet.range,jet.payload}</h6>
+          <button type="button" class="delete">Delete</button>
+        </div>
+      </div>`
+    )});
+    
+    var button = document.querySelector('button.delete:not(button.delete[onclick=onButtonClick])');
+    var button = document.querySelector('button.delete:not([onclick=onButtonClick])');
+    button.addEventListener('click', onButtonClick);
+}
+}
+);
 
 
 
@@ -72,7 +110,7 @@ var q = getData2(URL2).then(prj => {
 
 
 
-const URL3 = `${q.projectid}`;
+//const URL3 = `${q.projectid}`;
 
 
 
@@ -88,9 +126,9 @@ async function getData3(projectid) {
     }
     console.log(responce);
     let data = await responce.json();
-    
+
     console.log(data);
-    return (getData3);
+    return data;
   //  console.log(Array.projects.projectId);
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -98,8 +136,9 @@ async function getData3(projectid) {
   }
   // fireship
 }
-getData3(URL3);
-;
+
+//getData3(URL3);
+//;
 
 //console.log(data);
 

@@ -64,7 +64,8 @@ var q = getData2(URL2).then(prj => {
     getData3(p.projectId).then(data => { 
       console.log('f'); 
       p.proj = data;
-
+      console.log(data);
+      
       console.log(p); 
     });
     
@@ -75,7 +76,7 @@ var q = getData2(URL2).then(prj => {
 }).then(q => {
 
   console.log(prjz);
-  console.log(prjz.projectId);
+  console.log(prjz.proj);
 
   function displayInfo(prjz)
 {
@@ -99,9 +100,9 @@ var q = getData2(URL2).then(prj => {
       </div>`
     )});
     
-    var button = document.querySelector('button.delete:not(button.delete[onclick=onButtonClick])');
-    var button = document.querySelector('button.delete:not([onclick=onButtonClick])');
-    button.addEventListener('click', onButtonClick);
+    //var button = document.querySelector('button.delete:not(button.delete[onclick=onButtonClick])');
+    //var button = document.querySelector('button.delete:not([onclick=onButtonClick])');
+    //button.addEventListener('click', onButtonClick);
 }
 
 displayInfo(prjz);

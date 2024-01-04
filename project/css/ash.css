@@ -65,11 +65,12 @@ body {
     padding: 1vw 1vw 1vw 1vw;
     border-radius: 1vw;
     height: 25vh;
+    width: 15vh;
     transition: all 2s;
     overflow: hidden;
     transform-box: fill-box;
     box-shadow: 1vw 1vh 1vw 1vh rgb(0, 0, 0, 0.5);
-    line-height : 20px;
+    line-height : 25px;
     text-align: center;
   }
   

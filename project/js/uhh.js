@@ -51,10 +51,12 @@ async function getData2(URL2) {
   }
   // fireship
 }
+
 var q = getData2(URL2).then(prj => {
 
   console.log('c')
   console.log(prj)
+  
   
   prj.forEach(p => {
     console.log('d')
@@ -64,26 +66,16 @@ var q = getData2(URL2).then(prj => {
     getData3(p.projectId).then(data => { 
       console.log('f'); 
       p.proj = data;
-      console.log(data);
-      
+      console.log(data);      
       console.log(p); 
-    });
-    
-    
-    
+      displayInfo(p);
+    });    
   });
   
-}).then(q => {
+})
 
-  console.log(prjz);
-  console.log(prjz.proj);
-
-  function displayInfo(prjz)
+function displayInfo(prj)
 {
-  prjz.forEach((prj) => {
-    console.log(prjz);
-  console.log(prjz.projectId);
-
     document.querySelector(".flex-container").insertAdjacentHTML(
       "afterbegin",
       `<div class="grow" id="grow">
@@ -92,24 +84,18 @@ var q = getData2(URL2).then(prj => {
             src="${prj.projectId}"
             alt="F44"
           />
-          <h2>${prj.title}</h2>
+          <h2>${prj.proj.project.title}</h2>
           <h4>${prj.role}</h4>
           <h6>${prj.projectId}</h6>
           <button type="button" class="delete">Delete</button>
         </div>
       </div>`
-    )});
+    );
     
     //var button = document.querySelector('button.delete:not(button.delete[onclick=onButtonClick])');
     //var button = document.querySelector('button.delete:not([onclick=onButtonClick])');
     //button.addEventListener('click', onButtonClick);
 }
-
-displayInfo(prjz);
-}
-);
-
-
 
 
 // api key naza2 = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUZWNoUG9ydCIsImV4cCI6MTcwMzA4MDU0OCwibmJmIjoxNzAyOTk0MTQ4LCJTRVNTSU9OX0lEIjoiN1FxVmkwOFE5aTNSRDljNWQ0Zm04WHpzMXhIR0JYd2pwck4xIiwiRklOR0VSUFJJTlRfSEFTSCI6IjQ4MjdBRUEzMjJEOEI5QjgzODFGNTA5NEU3NkYxOUVGNUQ1QTVFNUM4MTk4RDIxQzBEMEE5MjAwOUY4OTdFMUMifQ.vVeiqyD3156_q7jkN1ZJi_y0K94COfseX9M7rR-PdaM

@@ -65,7 +65,7 @@ body {
     padding: 1vw 1vw 1vw 1vw;
     border-radius: 1vw;
     height: 25vh;
-    width: 15vh;
+    
     transition: all 2s;
     overflow: hidden;
     transform-box: fill-box;

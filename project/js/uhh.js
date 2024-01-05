@@ -74,6 +74,42 @@ var q = getData2(URL2).then(prj => {
   
 })
 
+
+
+
+
+const options = {
+  method: 'POST',
+  headers: {
+    accept: 'application/json',
+    'content-type': 'application/json',
+    authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWExZjVlNWUtN2FhYy00YjA3LTg5Y2YtODg0MzRiMTExYzJkIiwidHlwZSI6ImFwaV90b2tlbiJ9.IVVDd2gxYLjUhUH8Fnbx7QvhzPqW4JEwWrmRUleaMoA'
+  },
+  body: JSON.stringify({
+    response_as_dict: true,
+    attributes_as_list: false,
+    show_original_response: false,
+    resolution: '256x256',
+    num_images: 1,
+    providers: 'deepai',
+    text: '${prj.proj.project.title}'
+  })
+};
+
+fetch('https://api.edenai.run/v2/image/generation', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+
+
+
+
+
+
+
+
+
+
 function displayInfo(prj)
 {
     document.querySelector(".flex-container").insertAdjacentHTML(
@@ -181,72 +217,4 @@ getData(URL);
 
 
 
-
-const ash = {
-  name: "ash", //string
-  age: 16, //integer
-
-
-};
-let xx = Array.from(ash.name);
-console.log(xx);
-
-var i =7;
-for(; ++i< ash.name,length;){
-  console.log(ash.name[i]);
-
-}
-
-let ii = 0;
-while( ii < ash.name.length){
-  console.log(ash.name[ii]);
-  ii++;
-}
-
-function needy(name, serch){
-  if(name.includes(serch)){
-    return true;
-  }
-  return false;
-  }
-console.log(needy(ash.name, "a"))
-
-function needz(name, serch){
-  if(name === (serch)){
-    return true;
-  }
-  return false;  
-  }
-
-console.log(need(ash.name, "ash"))
-
-function need(name, serch){
-  if(name == (serch)){
-    return true;
-  }else{
-    return false;
-  }
-  }
-console.log(need(2, "2"))
-
-
-function sort(name){
-  let x = [...name].sort();
-  console.log(x);
-}
-sort("yolooo");
-
-let x = [1,2,3];
-let y = [4,5,6]
-let z = [...x, ...y];
-let zz = {...x, ...y};
-x = [...x, ...y];
-console.log(z);
-console.log(zz);
-function rom(name){
-  let x = Array.from(name);
-  x.splice(-1);
-  console.log(x);
-  
-}
 

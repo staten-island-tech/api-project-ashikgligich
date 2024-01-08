@@ -125,6 +125,8 @@ async function getAImg(text)
 
 
 
+
+
 function displayInfo(prj)
 {
     document.querySelector(".flex-container").insertAdjacentHTML(

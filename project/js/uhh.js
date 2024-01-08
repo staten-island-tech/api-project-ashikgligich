@@ -54,53 +54,68 @@ async function getData2(URL2) {
 
 var q = getData2(URL2).then(prj => {
 
-  console.log('c')
-  console.log(prj)
+  //console.log('c')
+  //console.log(prj)
   
   
   prj.forEach(p => {
-    console.log('d')
-    console.log(p);
-    console.log(p.projectId);
-    console.log('e')
+    //console.log('d')
+    //console.log(p);
+    //console.log(p.projectId);
+    //console.log('e')
     getData3(p.projectId).then(data => { 
-      console.log('f'); 
-      p.proj = data;
-      console.log(data);      
-      console.log(p); 
-      displayInfo(p);
-    });    
+      //console.log('f'); 
+      p.proj = data;      
+      //console.log(data);      
+      //console.log(p); 
+      getAImg(data.project.title).then(data => {
+        console.log('g');  
+        p.aiImg = data;   
+        console.log(data); 
+        console.log(p); 
+        displayInfo(p); } )
+      
+    });
+    
+    
   });
   
 })
 
 
 
+async function getAImg(text)
+{
+  const options = {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/json',
+      authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWExZjVlNWUtN2FhYy00YjA3LTg5Y2YtODg0MzRiMTExYzJkIiwidHlwZSI6ImFwaV90b2tlbiJ9.IVVDd2gxYLjUhUH8Fnbx7QvhzPqW4JEwWrmRUleaMoA'
+    },
+    body: JSON.stringify({
+      response_as_dict: true,
+      attributes_as_list: false,
+      show_original_response: false,
+      resolution: '256x256',
+      num_images: 1,
+      providers: 'replicate',
+      text: text
+    })
+  };
 
+  const response = await fetch('https://api.edenai.run/v2/image/generation', options);
 
-const options = {
-  method: 'POST',
-  headers: {
-    accept: 'application/json',
-    'content-type': 'application/json',
-    authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWExZjVlNWUtN2FhYy00YjA3LTg5Y2YtODg0MzRiMTExYzJkIiwidHlwZSI6ImFwaV90b2tlbiJ9.IVVDd2gxYLjUhUH8Fnbx7QvhzPqW4JEwWrmRUleaMoA'
-  },
-  body: JSON.stringify({
-    response_as_dict: true,
-    attributes_as_list: false,
-    show_original_response: false,
-    resolution: '256x256',
-    num_images: 1,
-    providers: 'deepai',
-    text: '${prj.proj.project.title}'
-  })
-};
+  let data = await response.json();
 
-fetch('https://api.edenai.run/v2/image/generation', options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
+  console.log(data.replicate.items[0].image_resource_url); 
+  return data.replicate.items[0].image_resource_url;
 
+    //.then(response => response.json())
+    //.then(response => { console.log(response); console.log(response.replicate.items[0].image_resource_url); return response.replicate.items[0].image_resource_url; })
+  
+    //.catch(err => console.error(err));
+}
 
 
 
@@ -117,15 +132,27 @@ function displayInfo(prj)
       `<div class="grow" id="grow">
         <div id="animation1">
           <img
-            src="${prj.projectId}"
+            src="${prj.aiImg}"
             alt="F44"
           />
           <h2>${prj.proj.project.title}</h2>
-          <h4>${prj.role}</h4>
+          <h4>${prj.proj.project.website}</h4>
           <h6>${prj.projectId}</h6>
-          <button type="button" class="delete">Delete</button>
+          <a class="button" href="#popup1">More Info!</a>
         </div>
-      </div>`
+      </div>
+      <div id="popup1" class="overlay">
+          <div class="popup">
+            
+            <div id="animation3"></div>
+            <h2>${prj.proj.project.acronym}</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+              <h4>${prj.proj.project.benefits}</h4> 
+              <h4>${prj.proj.project.description}</h4> 
+            </div>
+          </div>
+        </div>`
     );
     
     //var button = document.querySelector('button.delete:not(button.delete[onclick=onButtonClick])');

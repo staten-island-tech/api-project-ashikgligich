@@ -135,10 +135,11 @@ function displayInfo(prj)
         <div id="animation1">
           <img
             src="${prj.aiImg}"
-            alt="F44"
+            alt="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/2449px-NASA_logo.svg.png"
           />
           <h2>${prj.proj.project.title}</h2>
           <h4>${prj.proj.project.website}</h4>
+          <h4>${prj.proj.project.start-date}</h4>
           <h6>${prj.projectId}</h6>
           <a class="button" href="#popup1">More Info!</a>
         </div>

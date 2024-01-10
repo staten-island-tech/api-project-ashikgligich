@@ -85,7 +85,7 @@ body {
   
   .grow:hover div {
     position: relative;
-    transition: transform 1.05s ease-in-out;
+    transition: transform 0.75s ease-in-out;
   }
   body h2 {
     display: block;

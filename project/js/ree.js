@@ -143,7 +143,7 @@ console.log(date);
             />
             <h2>${prj.proj.project.title}</h2>
             <h4>${prj.proj.project.website}</h4>
-            <h4>${prj.proj.project.startDateString}-${prj.proj.project.endDateString}</h4>
+            <h4>${prj.proj.project.startDateString} - ${prj.proj.project.endDateString}</h4>
             <h4>${prj.proj.project.statusDescription}</h4>
             <h6>${prj.projectId}</h6>
             <a class="button" href="#popup1">More Info!</a>

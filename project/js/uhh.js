@@ -128,40 +128,41 @@ async function getAImg(text)
 
 
 function displayInfo(prj)
-{
-    document.querySelector(".flex-container").insertAdjacentHTML(
-      "afterbegin",
-      `<div class="grow" id="grow">
-        <div id="animation1">
-          <img
-            src="${prj.aiImg}"
-            alt="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/2449px-NASA_logo.svg.png"
-          />
-          <h2>${prj.proj.project.title}</h2>
-          <h4>${prj.proj.project.website}</h4>
-          <h4>${prj.proj.project.start-date}</h4>
-          <h6>${prj.projectId}</h6>
-          <a class="button" href="#popup1">More Info!</a>
-        </div>
-      </div>
-      <div id="popup1" class="overlay">
-          <div class="popup">
-            
-            <div id="animation3"></div>
-            <h2>${prj.proj.project.acronym}</h2>
-            <a class="close" href="#">&times;</a>
-            <div class="content">
-              <h4>${prj.proj.project.benefits}</h4> 
-              <h4>${prj.proj.project.description}</h4> 
-            </div>
+  {
+      document.querySelector(".flex-container").insertAdjacentHTML(
+        "afterbegin",
+        `<div class="grow" id="grow">
+          <div id="animation1">
+            <img
+              src="${prj.aiImg}"
+              alt=https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/2449px-NASA_logo.svg.png
+            />
+            <h2>${prj.proj.project.title}</h2>
+            <a href="${prj.proj.project.website}">${prj.proj.project.website}</a>
+            <h4>${prj.proj.project.startDateString} - ${prj.proj.project.endDateString}</h4>
+            <h4>${prj.proj.project.statusDescription}</h4>
+            <h6>${prj.projectId}</h6>
+            <a class="button" href="#popup1">More Info!</a>
           </div>
-        </div>`
-    );
-    
-    //var button = document.querySelector('button.delete:not(button.delete[onclick=onButtonClick])');
-    //var button = document.querySelector('button.delete:not([onclick=onButtonClick])');
-    //button.addEventListener('click', onButtonClick);
-}
+        </div>
+        <div id="popup1" class="overlay">
+            <div class="popup">
+              
+              <div id="animation3"></div>
+              <h2>${prj.proj.project.acronym}</h2>
+              <a class="close" href="#">&times;</a>
+              <div class="content">
+                <h4>${prj.proj.project.benefits}</h4> 
+                <h4>${prj.proj.project.description}</h4> 
+              </div>
+            </div>
+          </div>`
+      );
+      
+      //var button = document.querySelector('button.delete:not(button.delete[onclick=onButtonClick])');
+      //var button = document.querySelector('button.delete:not([onclick=onButtonClick])');
+      //button.addEventListener('click', onButtonClick);
+  }
 
 
 // api key naza2 = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUZWNoUG9ydCIsImV4cCI6MTcwMzA4MDU0OCwibmJmIjoxNzAyOTk0MTQ4LCJTRVNTSU9OX0lEIjoiN1FxVmkwOFE5aTNSRDljNWQ0Zm04WHpzMXhIR0JYd2pwck4xIiwiRklOR0VSUFJJTlRfSEFTSCI6IjQ4MjdBRUEzMjJEOEI5QjgzODFGNTA5NEU3NkYxOUVGNUQ1QTVFNUM4MTk4RDIxQzBEMEE5MjAwOUY4OTdFMUMifQ.vVeiqyD3156_q7jkN1ZJi_y0K94COfseX9M7rR-PdaM

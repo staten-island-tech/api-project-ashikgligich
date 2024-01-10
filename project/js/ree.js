@@ -139,10 +139,10 @@ console.log(date);
           <div id="animation1">
             <img
               src="${prj.aiImg}"
-              alt="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/2449px-NASA_logo.svg.png"
+              alt=https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/2449px-NASA_logo.svg.png
             />
             <h2>${prj.proj.project.title}</h2>
-            <h4>${prj.proj.project.website}</h4>
+            <a href="${prj.proj.project.website}">${prj.proj.project.website}</a>
             <h4>${prj.proj.project.startDateString} - ${prj.proj.project.endDateString}</h4>
             <h4>${prj.proj.project.statusDescription}</h4>
             <h6>${prj.projectId}</h6>

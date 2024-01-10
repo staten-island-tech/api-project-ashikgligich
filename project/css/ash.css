@@ -17,7 +17,7 @@
   --grey: rgb(50, 50, 75);
   --someVar: RED;
 
-  
+
 }
 
 body {
@@ -65,7 +65,7 @@ body {
     display: flex;
     padding: 1vw 1vw 1vw 1vw;
     border-radius: 1vw;
-    height: 25vh;
+    height: 35vh;
     width: 400px;
     transition: all 2s;
     overflow: hidden;
@@ -77,7 +77,7 @@ body {
   
   .grow:hover {
     background-color: grey;
-    height: 50vh;
+    height: 75vh;
     position: relative;
     z-index: 100;
     transform: scale(1.25);
